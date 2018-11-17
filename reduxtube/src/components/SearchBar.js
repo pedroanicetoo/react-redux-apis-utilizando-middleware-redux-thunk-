@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import {Segment, Input} from 'semantic-ui-react';
 
 
+// const SearchBar = props => {
+
 class SearchBar extends Component {
     
     pesquisaTermo = e => {
