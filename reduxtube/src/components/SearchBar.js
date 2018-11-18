@@ -1,15 +1,23 @@
 import React, {Component} from 'react'
 import {Segment, Input} from 'semantic-ui-react';
-
-
-// const SearchBar = props => {
+import {connect} from 'react-redux'
+import { dispatch } from 'rxjs/internal/observable/range';
+import busca from '../store/actions/busca-video'
+import {buscaVideo} from '../store/actions/busca-video'
 
 class SearchBar extends Component {
-    
+    constructor(props) {
+        super(props)
+        //onload
+        this.props.buscaVideo('Sistemas Distribuídos')
+    }
+
+
     pesquisaTermo = e => {
-        if(e.keyCode === 13) {
+        if(e.keyCode === 13) { //enter code keyboard
             const termo = e.target.value;
             console.log(termo);
+            this.props.buscaVideo(termo);
         }
     }
     render() {
@@ -26,4 +34,10 @@ class SearchBar extends Component {
     }
 }
 
-export default SearchBar;
+const mapDispatchProps = (dispatch) => {
+    return {
+        buscaVideo: (termo) => dispatch(buscaVideo(termo))
+    }
+}
+
+export default connect(null,mapDispatchProps)(SearchBar);
