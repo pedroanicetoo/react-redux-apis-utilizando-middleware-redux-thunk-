@@ -2,7 +2,15 @@
   font-size: 22px;
   font-weight: bold;
 }
+.text-left {
+  text-align: left !important;
+}
 
 .header {
   padding: 0 20px;
+}
+
+a, a:hover {
+  text-decoration: none;
+  color: inherit;
 }
